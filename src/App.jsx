@@ -2,10 +2,15 @@ import React, { useState } from "react";
 import ColorfulMessage from "./components/ColorfulMessage";
 
 const App = () => {
+  const [num, setNum] = useState(0);
+  const [faceShowFlg, setFaceShowFlg] = useState(true);
   const onClickButton = () => {
     setNum(num + 1);
   };
-  const [num, setNum] = useState(0);
+
+  const onClickSwitchFaceShowFlg = () => {
+    setFaceShowFlg(!faceShowFlg);
+  };
 
   return (
     <>
@@ -13,7 +18,10 @@ const App = () => {
       <ColorfulMessage color="blue">お元気ですか？</ColorfulMessage>
       <ColorfulMessage color="pink">元気です！</ColorfulMessage>
       <button onClick={onClickButton}>カウントアップ</button>
+      <br />
+      <button onClick={onClickSwitchFaceShowFlg}>on/off</button>
       <p>{num}</p>
+      {faceShowFlg && <p>(*´▽｀*)</p>}
     </>
   );
 };
