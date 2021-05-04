@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ColorfulMessage from "./components/ColorfulMessage";
+import { ColorfulMessage } from "./components/ColorfulMessage";
 
 const App = () => {
   const [num, setNum] = useState(0);
@@ -15,9 +15,9 @@ const App = () => {
   useEffect(() => {
     if (num > 0) {
       if (num % 3 === 0) {
-        setFaceShowFlg(true);
+        faceShowFlg || setFaceShowFlg(true);
       } else {
-        setFaceShowFlg(false);
+        faceShowFlg && setFaceShowFlg(false);
       }
     }
   }, [num]);
