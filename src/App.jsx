@@ -3,7 +3,7 @@ import ColorfulMessage from "./components/ColorfulMessage";
 
 const App = () => {
   const onClickButton = () => {
-    alert();
+    setNum(num + 1);
   };
   const [num, setNum] = useState(0);
 
