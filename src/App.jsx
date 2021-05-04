@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ColorfulMessage from "./components/ColorfulMessage";
 
 const App = () => {
   const [num, setNum] = useState(0);
-  const [faceShowFlg, setFaceShowFlg] = useState(true);
+  const [faceShowFlg, setFaceShowFlg] = useState(false);
   const onClickButton = () => {
     setNum(num + 1);
   };
@@ -11,6 +11,16 @@ const App = () => {
   const onClickSwitchFaceShowFlg = () => {
     setFaceShowFlg(!faceShowFlg);
   };
+
+  useEffect(() => {
+    if (num > 0) {
+      if (num % 3 === 0) {
+        setFaceShowFlg(true);
+      } else {
+        setFaceShowFlg(false);
+      }
+    }
+  }, [num]);
 
   return (
     <>
